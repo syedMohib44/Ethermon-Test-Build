@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | Ethermon-Mini</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="https://cdn.socket.io/4.0.0/socket.io.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+  <div class="g-recaptcha" data-sitekey="6LeAzDseAAAAAGHF8yxcRSruEl5tVRAB1na5umvZ" data-callback="reCaptcha"
+    data-size="invisible"></div>
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas" width=960 height=600></canvas>
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+    <div id="unity-mobile-warning">
+      WebGL builds are not supported on mobile devices.
+    </div>
+    <div id="unity-footer">
+      <div id="unity-webgl-logo"></div>
+      <div id="unity-fullscreen-button"></div>
+      <div id="unity-build-title">Ethermon-Mini</div>
+    </div>
+  </div>
+  <script>
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/55b027cfe78bae9b0fbebad0d7c12abd.js";
+    var config = {
+      dataUrl: buildUrl + "/0c12885155b2d7531375321b5d2284ab.data",
+      frameworkUrl: buildUrl + "/25695b42f350e03668ad58362d6a16cf.js",
+      codeUrl: buildUrl + "/ddbc86481baa9748863169f4f6348bff.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Ethermon",
+      productName: "Ethermon-Mini",
+      productVersion: "1.0",
+    };
+
+    var container = document.querySelector("#unity-container");
+    var canvas = document.querySelector("#unity-canvas");
+    var loadingBar = document.querySelector("#unity-loading-bar");
+    var progressBarFull = document.querySelector("#unity-progress-bar-full");
+    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+    // By default Unity keeps WebGL canvas render target size matched with
+    // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+    // Set this to false if you want to decouple this synchronization from
+    // happening inside the engine, and you would instead like to size up
+    // the canvas DOM size and WebGL render target sizes yourself.
+    // config.matchWebGLToCanvasSize = false;
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      container.className = "unity-mobile";
+      // Avoid draining fillrate performance on mobile devices,
+      // and default/override low DPI mode on mobile browsers.
+      config.devicePixelRatio = 1;
+      mobileWarning.style.display = "block";
+      setTimeout(() => {
+        mobileWarning.style.display = "none";
+      }, 5000);
+    } else {
+      canvas.style.width = "960px";
+      canvas.style.height = "600px";
+    }
+    loadingBar.style.display = "block";
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    window.reCaptcha = function () {
+      const g_recaptcha_response = grecaptcha.getResponse();
+      if (g_recaptcha_response !== "") {
+        //console.log(g_recaptcha_response);
+        if (window.unityInstance)
+          window.unityInstance.SendMessage("SIO", "reCaptcha", g_recaptcha_response);
+      }
+      grecaptcha.execute();
+    }
+
+    window.Dead = function () {
+      history.back();
+      //window.location.href = 'http://localhost:3000/';  
+      //window.location.reload();
+    }
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        progressBarFull.style.width = 100 * progress + "%";
+      }).then((unityInstance) => {
+        window.isOnMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        window.unityInstance = unityInstance;
+        loadingBar.style.display = "none";
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+        const mons = ['Chulember', 'Elekitt', 'Hambrisk'];
+
+        setTimeout(function () {
+          const obj = {
+            type: 'auth',
+            id: `61b5b058f07de5fa75e2482fx${Math.random() * 10000}`, //Here will come the wallet address.
+            apiKey: 'cYdzCjcXhEfwKq7ZjUREpfuD',
+            class_name: mons[Math.floor(Math.random() * 3)],
+            //usersPerRoom: 2, //Can be used to limit user per room.
+            userid: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzYWx0IjoiNjFiNWIwNThmMDdkZTVmYTc1ZTI0ODJmIiwiaWF0IjoxNjQwODU2NTc3LCJleHAiOjE2NDM0NDg1Nzd9.hYnrQ77EnflvFpjBEQiBq6Tow6I012VXSBG5ei5EmmE"
+          };
+          if (window.isOnMobile) {
+            //alert("Ok");
+            window.unityInstance.SendMessage("SIO", "GetIsOnMobile", "true");
+          }
+
+          window.unityInstance.SendMessage("SIO", "Login", JSON.stringify(obj));
+          monCollection();
+        }, 5000);
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+    document.body.appendChild(script);
+    function monCollection() {
+      const mons = ['Chulember', '227_Hambrisk', '235_Snobbit'];
+      window.unityInstance.SendMessage("SIO", "SetMonsCollection", JSON.stringify(mons));
+    }
+    window.onblur = function () {
+      console.log("Loose focus");
+    };
+  </script>
+</body>
+
+</html>
