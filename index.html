@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | AR</title>
+    <title>Unity WebGL Player | Ethermon-AR</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">AR</div>
+        <div id="unity-build-title">Ethermon-AR</div>
       </div>
     </div>
     <script>
@@ -63,8 +63,8 @@
         codeUrl: buildUrl + "/Test.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "AR",
-        productVersion: "1.0.0",
+        productName: "Ethermon-AR",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 
@@ -76,78 +76,44 @@
       // config.matchWebGLToCanvasSize = false;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
-        mobileWarning.style.display = "block";
-        setTimeout(() => {
-          mobileWarning.style.display = "none";
-        }, 5000);
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
         canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
+
       loadingBar.style.display = "block";
-  
+
       var script = document.createElement("script");
       script.src = loaderUrl;
-      window.reCaptcha = function () {
-        const g_recaptcha_response = grecaptcha.getResponse();
-        if (g_recaptcha_response !== "") {
-          //console.log(g_recaptcha_response);
-          if (window.unityInstance)
-            window.unityInstance.SendMessage("SIO", "reCaptcha", g_recaptcha_response);
-        }
-        grecaptcha.execute();
-      }
-  
-      window.Dead = function () {
-        history.back();
-        //window.location.href = 'http://localhost:3000/';  
-        //window.location.reload();
-      }
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-          window.isOnMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
-          const mons = ['Chulember', 'Elekitt', 'Hambrisk'];
-  
-          setTimeout(function () {
-            const obj = {
-              type: 'auth',
-              id: `61b5b058f07de5fa75e2482fx${Math.random() * 10000}`, //Here will come the wallet address.
-              apiKey: 'cYdzCjcXhEfwKq7ZjUREpfuD',
-              class_name: mons[Math.floor(Math.random() * 3)],
-              //usersPerRoom: 2, //Can be used to limit user per room.
-              userid: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzYWx0IjoiNjFiNWIwNThmMDdkZTVmYTc1ZTI0ODJmIiwiaWF0IjoxNjQwODU2NTc3LCJleHAiOjE2NDM0NDg1Nzd9.hYnrQ77EnflvFpjBEQiBq6Tow6I012VXSBG5ei5EmmE"
-            };
-            if (window.isOnMobile) {
-              //alert("Ok");
-              window.unityInstance.SendMessage("SIO", "GetIsOnMobile", "true");
-            }
-  
-            window.unityInstance.SendMessage("SIO", "Login", JSON.stringify(obj));
-            monCollection();
-          }, 5000);
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
-      function monCollection() {
-        const mons = ['Chulember', '227_Hambrisk', '235_Snobbit'];
-        window.unityInstance.SendMessage("SIO", "SetMonsCollection", JSON.stringify(mons));
-      }
-      window.onblur = function () {
-        console.log("Loose focus");
-      };
     </script>
   </body>
 </html>

@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 3703976288
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: mons
+      Dependencies:
+        Dependency_0: animations
+    Info_1:
+      Name: materials
+      Dependencies: {}
+    Info_2:
+      Name: prefabs
+      Dependencies: {}
+    Info_3:
+      Name: animations
+      Dependencies: {}
+    Info_4:
+      Name: player
+      Dependencies: {}
+    Info_5:
+      Name: etherballs
+      Dependencies: {}

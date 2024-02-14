@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 2639882694
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 15598ff3a666d5a3a2432586a88c111d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 31a8e35008e8aab720d0136425be6fad
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Animations/Dead_Aim.anim
+- Assets/Resources/Animations/Coin/Coin_Popup.anim
+- Assets/Resources/Animations/GameOver 1.controller
+- Assets/Resources/Animations/Coin/Coin.controller
+- Assets/Resources/Animations/Enemy/Enemy_Anim.controller
+- Assets/Resources/Animations/GameOver_Anim.anim
+- Assets/Resources/Animations/Ramp/RampIndicatorAnim.anim
+- Assets/Resources/Animations/New Animation.anim
+- Assets/Resources/Animations/Take 001.anim
+- Assets/Resources/Animations/Ramp/RampPoint.controller
+- Assets/Resources/Animations/Coin/Coin Drop.anim
+- Assets/Resources/Animations/Coin/Coin_Anim.anim
+- Assets/Resources/Animations/GameOver.controller
+Dependencies: []

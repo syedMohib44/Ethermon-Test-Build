@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+CRC: 2410085690
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f05e8d3ce98bde5f3123c5025b44939f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 91cd210fa03feef2b4fc38d3f482def2
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2485ede5c9fb14e739dac1dca0d08054, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/EtherBalls/Poly_Ball.prefab
+- Assets/Resources/EtherBalls/BNB_Ball.prefab
+- Assets/Resources/EtherBalls/Materials/Poly_MAT.mat
+- Assets/Resources/EtherBalls/Materials/Ball.fbm/Spare_UV.jpg
+- Assets/Resources/EtherBalls/Ether_Ball.prefab
+- Assets/Resources/EtherBalls/Materials/lambert2.mat
+- Assets/Resources/EtherBalls/Materials/Spare_UV.jpg
+- Assets/Resources/EtherBalls/Materials/BNB_MAT 1.mat
+- Assets/Resources/EtherBalls/Materials/Spare_UV.mat
+Dependencies: []

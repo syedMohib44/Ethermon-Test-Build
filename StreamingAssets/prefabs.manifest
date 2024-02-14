@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 879604665
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1072b7078b8016462af6b8b1f43051a1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 11c11c5e9332fd16f9a34a5987eb441c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 154
+  Script: {instanceID: 0}
+- Class: 156
+  Script: {instanceID: 0}
+- Class: 182
+  Script: {instanceID: 0}
+- Class: 218
+  Script: {instanceID: 0}
+- Class: 1953259897
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Prefabs/Audio/femalscream.wav
+- Assets/Resources/Prefabs/Environments.prefab
+Dependencies: []

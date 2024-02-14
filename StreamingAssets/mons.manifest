@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+CRC: 3921542144
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e95a4f9a700012bf03da676ce9eb12e9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d5a42f3d756ae600b877f37e71b99be7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 79e67c2ce00dc42d89bf30a745f6c540, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Animations/Kyari/Jump.anim
+- Assets/Resources/Mons/Textures/T_Kyari.png
+- Assets/Resources/Mons/Materials/Hambrisk_Matic_Rig4_Tex.mat
+- Assets/Resources/Mons/Materials/Texture_SmallSlimeLeave_Base_Color.mat
+- Assets/Resources/Mons/Textures/224_Elekitt_Matic_Texture 1.jpg
+- Assets/Resources/Mons/Materials/MatLargeSlime.mat
+- Assets/Resources/Mons/Materials/_Elekitt_Matic_rig_Tex.mat
+- Assets/Resources/Animations/Hambrisk/Jump.anim
+- Assets/Resources/Mons/227_Hambrisk.prefab
+- Assets/Resources/Animations/Elekitt/Jump.anim
+- Assets/Resources/Mons/Materials/224_Elekitt_Matic_Texture 1.mat
+- Assets/Resources/Animations/Chulember/10_Chulember.controller
+- Assets/Resources/Mons/Textures/226_Hambrisk_Matic tex.jpg
+- Assets/Resources/Mons/224_Elekitt.prefab
+- Assets/Resources/Animations/Chulember/Jump.anim
+- Assets/Resources/Mons/Materials/MatLeaves.mat
+- Assets/Resources/Mons/Materials/Snobbit_Matic_Rig_Tex.mat
+- Assets/Resources/Mons/10_Chulember.prefab
+- Assets/Resources/Mons/27_Kyari.prefab
+- Assets/Resources/Mons/Materials/Texture_LargeSlimeLeave_Base_Color.mat
+- Assets/Resources/Mons/Materials/234_Snobbit_Matic_Texc.mat
+- Assets/Resources/Mons/Materials/T_Chulember.mat
+- Assets/Resources/Mons/Materials/T_Kyari.mat
+- Assets/Resources/Animations/Elekitt/Elekitt.controller
+- Assets/Resources/Animations/Kyari/Kyari.controller
+- Assets/Resources/Mons/Materials/Hambrisk_Matic_Rig4__Hambrisk_Matic_1__Tex.mat
+- Assets/Resources/Mons/Textures/T_Chulember.png
+- Assets/Resources/Animations/Snobbit/Jump.anim
+- Assets/Resources/Mons/Materials/_Chulember_Rig_Chulember_mat.mat
+- Assets/Resources/Mons/Materials/Kyari_mat.mat
+- Assets/Resources/Mons/235_Snobbit.prefab
+- Assets/Resources/Animations/Hambrisk/227_Hambrisk.controller
+- Assets/Resources/Animations/Snobbit/235_Snobbit.controller
+- Assets/Resources/Mons/Textures/234_Snobbit_Matic_Texc.jpg
+Dependencies:
+- /Users/syedmohib/Unity/Ethermon-AR/Assets/StreamingAssets/animations
